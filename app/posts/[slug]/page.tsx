@@ -24,9 +24,18 @@ export default async function PostPage({
   const { data, content } = matter(fileContents);
 
   return (
-    <article>
-      <h1>{data.title}</h1>
-      <ReactMarkdown>{content}</ReactMarkdown>
-    </article>
+    <>
+      <article>
+        <h1 id="article_title">{data.title}</h1>
+        <h2 id="tags_title">Tags</h2>
+        <ul id="tags">
+          {data.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </article>
+      <a href="/">Back to home</a>
+    </>
   );
 }
