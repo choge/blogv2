@@ -1,23 +1,22 @@
 ---
 title: VS Code上のRubyのLinter/Formatterを設定してみた
-date: '2024-06-23'
+date: "2024-06-23"
 tags:
   - ruby
   - vscode
 ---
 
-LSP
-===
+# LSP
 
 Language server protocol。補完するための機能たち。
 
 - [Ruby LSP](https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-lsp)
 - [Ruby Solargraph](https://marketplace.visualstudio.com/items?itemName=castwide.solargraph)
 
-の2種類がある模様。
+の 2 種類がある模様。
 
 > The Ruby LSP features include
-> 
+>
 > - Semantic highlighting
 > - Symbol search and code outline
 > - RuboCop errors and warnings (diagnostics)
@@ -30,20 +29,20 @@ Language server protocol。補完するための機能たち。
 > - Completion for classes, modules, constants and require paths
 > - Fuzzy search classes, modules and constants anywhere in the project and its dependencies (workspace symbol)
 
-とあるので、Ruby LSPの方でよさそう。
+とあるので、Ruby LSP の方でよさそう。
 
 ## インストール
 
 ### プラグイン自体のインストール
 
-VS CodeでRuby LSPを探してインストールする。
+VS Code で Ruby LSP を探してインストールする。
 ![ruby-lsp](images/ruby-lsp.png)
 
 ### プラグインの設定
 
-その後、 `setting.json` を開いてRuby向けの設定を追記する。
+その後、 `setting.json` を開いて Ruby 向けの設定を追記する。
 
-```json:setting.json
+```json
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp", // Ruby LSPの機能を使ってコードを整形するぞ、宣言。Ruby LSPは裏でRubocopとかを使うらしいです
     "editor.formatOnSave": true, // 保存時にファイルを整形する
@@ -54,13 +53,13 @@ VS CodeでRuby LSPを探してインストールする。
   },
 ```
 
-### Rubocopのインストール
+### Rubocop のインストール
 
 各プロジェクトで導入するのがよさそう。
 
-`Gemfile` の `:development` 内に、 `rubocop` を追加する。VS Code側で何かする必要はない。
+`Gemfile` の `:development` 内に、 `rubocop` を追加する。VS Code 側で何かする必要はない。
 
-```ruby:Gemfile
+```ruby
 group :development do
   # ...
   gem 'rubocop', require: false
@@ -78,9 +77,9 @@ end
 
 書き方が微妙なところを指摘するやつ。
 
-勝手にRubocopが実行されて、怪しい場所がエディタで見えるようになる。
+勝手に Rubocop が実行されて、怪しい場所がエディタで見えるようになる。
 ![ruby-lsp-linter](images/ruby-lsp-linter.png)
 
 ### Formatter
 
-↑の設定を入れておくと、保存したときに勝手にコードを整形してくれる。
+↑ の設定を入れておくと、保存したときに勝手にコードを整形してくれる。

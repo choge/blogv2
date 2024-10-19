@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import React from "react";
 import retrievePosts from "../../../lib/posts";
+import rehypeHighlight from "rehype-highlight";
 
 export const revalidate = 3600;
 
@@ -27,15 +28,22 @@ export default async function PostPage({
     <>
       <article>
         <h1 id="article_title">{data.title}</h1>
-        <h2 id="tags_title">Tags</h2>
-        <ul id="tags">
-          {data.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <div className="tags-container">
+          <h3 id="tags_title">Tags</h3>
+          <ul id="tags">
+            {data.tags.map((tag) => (
+              <li key={tag} className="tag">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <hr />
+        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+          {content}
+        </ReactMarkdown>
       </article>
-      <a href="/">Back to home</a>
+      <a href="/">⇇ Back to home</a>
     </>
   );
 }

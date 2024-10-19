@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactNode } from "react";
+import "./global.css";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,7 +18,7 @@ const Layout = ({ children, title = "My memo" }: LayoutProps) => {
           <h1>My memo</h1>
         </header>
         <hr />
-        <main>{children}</main>
+        <main className="container">{children}</main>
         <hr />
         <footer>
           <p>
