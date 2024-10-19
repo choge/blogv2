@@ -6,7 +6,7 @@ interface Post {
   slug: string;
   title: string;
   tags: string[];
-  content: string;
+  date: string;
 }
 
 export default async function retrievePosts(): Promise<Post[]> {
@@ -16,13 +16,13 @@ export default async function retrievePosts(): Promise<Post[]> {
   const posts = filenames.map((filename) => {
     const filePath = path.join(markdownDir, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     return {
       slug: filename.replace(/\.md$/, ""),
       title: data.title,
       tags: data.tags,
-      content: content,
+      date: data.date,
     };
   });
 
