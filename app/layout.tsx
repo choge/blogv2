@@ -4,14 +4,13 @@ import "./global.css";
 
 interface LayoutProps {
   children: ReactNode;
-  title?: string;
 }
 
-const Layout = ({ children, title = "My memo" }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <html>
       <head>
-        <title>{title}</title>
+        <title>my memo</title>
       </head>
       <body>
         <header>
