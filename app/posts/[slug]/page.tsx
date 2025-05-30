@@ -18,9 +18,10 @@ export async function generateStaticParams() {
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const filePath = path.join(process.cwd(), "posts", `${params.slug}.md`);
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, { encoding: "utf8" });
   const { data, content } = matter(fileContents);
 
