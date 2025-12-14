@@ -18,5 +18,10 @@
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
     "unified-plugin": "^7.1.19"
+  },
+  "packageManager": "pnpm@10",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
   }
 }
