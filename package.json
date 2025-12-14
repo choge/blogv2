@@ -19,7 +19,7 @@
     "unified": "^11.0.5",
     "unified-plugin": "^7.1.19"
   },
-  "packageManager": "pnpm@10",
+  "packageManager": "pnpm@10.25.0",
   "engines": {
     "node": ">=24",
     "pnpm": ">=10"
