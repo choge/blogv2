@@ -9,7 +9,7 @@ const HomePage: React.FC = async () => {
   return (
     <div>
       <h2>Contents</h2>
-      <ul>
+      <ul id={`page-list`}>
         {sortedPosts.map((post) => (
           <li key={post.slug}>
             <a href={`/posts/${post.slug}`}>

@@ -21,7 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
         <hr />
         <footer>
           <p>
-            &copy; 2024 <a href="https://github.com/choge">@choge</a>
+            &copy; 2026 <a href="https://github.com/choge">@choge</a>
           </p>
         </footer>
       </body>

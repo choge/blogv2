@@ -73,6 +73,11 @@ article ul li.tag {
   border-radius: 4px;
 }
 
+article hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /* Markdown content */
 article .markdown {
   margin-top: 20px;
@@ -83,6 +88,22 @@ article blockquote {
   border-left: 5px solid #bbcfa0;
   padding: 10px;
   margin: 20px 0;
+}
+
+ul#page-list {
+  list-style: none;
+  flex: grid;
+}
+
+ul#page-list li {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
+}
+
+ul#page-list li:hover {
+  background-color: #eeeeee;
 }
 
 /* Back to home link */
